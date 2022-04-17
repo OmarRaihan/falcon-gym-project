@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
+import Social from "../Social/Social";
 
 const Login = () => {
   const emailRef = useRef("");
@@ -54,6 +55,7 @@ const Login = () => {
           Please SignIn
         </Link>
       </p>
+      <Social></Social>
     </div>
   );
 };

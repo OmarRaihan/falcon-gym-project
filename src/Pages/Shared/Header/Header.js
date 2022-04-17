@@ -14,7 +14,7 @@ const Header = () => {
   }
 
   return (
-    <header style={{position: 'sticky', top: '0'}}>
+    <header>
       <Navbar className="shadow" sticky="top" bg="light" expand="lg">
         <Container>
           <Navbar.Brand className="fs-4 fw-bold" as={Link} to="/home">World Gym</Navbar.Brand>
