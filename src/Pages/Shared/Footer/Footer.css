@@ -1,0 +1,10 @@
+
+footer{
+    height: 70px;
+    background-color: black;
+    color: white;
+}
+
+footer p{
+    align-content: center;
+}

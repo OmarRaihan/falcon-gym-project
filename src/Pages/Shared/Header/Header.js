@@ -3,8 +3,8 @@ import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 const Header = () => {
   return (
-    <header>
-      <Navbar bg="light" expand="lg">
+    <header >
+      <Navbar sticky="top" bg="light" expand="lg">
         <Container>
           <Navbar.Brand className="fs-4 fw-bold" href="#home">World Gym</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
