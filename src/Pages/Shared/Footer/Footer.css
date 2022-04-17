@@ -1,10 +1,6 @@
 
 footer{
-    height: 70px;
+    height: 100px;
     background-color: black;
     color: white;
-}
-
-footer p{
-    align-content: center;
 }
