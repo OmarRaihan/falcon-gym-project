@@ -1,24 +1,29 @@
 import React from "react";
 import google from "../../../images/social/google-logo.png";
-import facebook from "../../../images/social/facebook-white-circle.png";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import github from "../../../images/social/Github-logo.png";
+import { useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { useNavigate } from "react-router-dom";
 
 const Social = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+
+  const [signInWithGithub, userGithub, loadingGithub, errorGithub] = useSignInWithGithub(auth);
+
   const navigate = useNavigate();
   let errorElement;
 
-  if (error) {
+  if (error || errorGithub) {
     errorElement = (
       <div>
-        <p className="text-danger">Error: {error.message}</p>
+        <p className="text-danger">
+          Error: {error?.message} {errorGithub?.message}
+        </p>
       </div>
     );
   }
 
-  if (user) {
+  if (user || userGithub) {
     navigate("/home");
   }
 
@@ -32,16 +37,16 @@ const Social = () => {
       {errorElement}
 
       <div className="text-center my-2">
-        <button onClick={() => signInWithGoogle()} className="btn btn-dark rounded-pill w-100">
+        <button onClick={() => signInWithGoogle()} className="btn btn-dark fw-bold rounded-pill w-100">
           <img className="me-1" style={{ width: "28px" }} src={google} alt="" />
           Google
         </button>
       </div>
 
       <div className="text-center mb-2">
-        <button className="btn btn-primary w-100 rounded-pill px-4">
-          <img className="me-1" style={{ width: "26px" }} src={facebook} alt="" />
-          Facebook
+        <button onClick={() => signInWithGithub()} className="btn btn-light border fw-bold w-100 rounded-pill px-4">
+          <img className="me-1" style={{ width: "26px" }} src={github} alt="" />
+          Github
         </button>
       </div>
     </div>

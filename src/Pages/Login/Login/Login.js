@@ -12,11 +12,22 @@ const Login = () => {
   const location = useLocation();
 
   let from = location.state?.from?.pathname || "/";
+  let errorElement;
 
   const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
 
   if (user) {
     navigate(from, { replace: true });
+  }
+
+  if (error) {
+    errorElement = (
+      <div>
+        <p className="text-danger">
+          Error: {error?.message}
+        </p>
+      </div>
+    );
   }
 
   const handleLogin = (event) => {
@@ -49,6 +60,7 @@ const Login = () => {
           Login
         </Button>
       </Form>
+      {errorElement}
       <p className="mt-2">
         New to World Gym?
         <Link to="/register" className="text-danger text-decoration-none pe-auto ms-1" onClick={navigateRegister}>
