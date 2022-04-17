@@ -1,28 +1,39 @@
 import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import auth from "../../../firebase.init";
 
 const Login = () => {
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleSubmit = (event) => {
+  let from = location.state?.from?.pathname || "/";
+
+  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+
+  if (user) {
+    navigate(from, { replace: true });
+  }
+
+  const handleLogin = (event) => {
     event.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
-    console.log(email, password);
+    signInWithEmailAndPassword(email, password);
   };
 
-  const navigateRegister = event =>{
-      navigate('/register')
-  }
+  const navigateRegister = (event) => {
+    navigate("/register");
+  };
 
   return (
     <div className="container w-50 mx-auto my-5">
       <h3 className="text-center mb-3">Please Login</h3>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleLogin}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control ref={emailRef} type="email" placeholder="Email" required />
         </Form.Group>
@@ -37,7 +48,12 @@ const Login = () => {
           Login
         </Button>
       </Form>
-      <p className="mt-2">New to World Gym? <Link to="/register" className="text-danger text-decoration-none pe-auto" onClick={navigateRegister}>Please SignUp</Link></p>
+      <p className="mt-2">
+        New to World Gym?
+        <Link to="/register" className="text-danger text-decoration-none pe-auto ms-1" onClick={navigateRegister}>
+          Please SignIn
+        </Link>
+      </p>
     </div>
   );
 };
