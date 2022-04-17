@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "Free Hand Exercise",
+        "description": "Free hand exercises are those exercises that are done without the help of any special equipment. These are also known as callisthenics.",
+        "price": 1000,
+        "img": "https://i.ibb.co/y6xCSMm/free-hand.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Martial Arts",
+        "description": "“Martial arts and combat sports” (MACS) are a myriad of systems of embodied movements and underlying philosophy and pedagogies.",
+        "price": 2500,
+        "img": "https://i.ibb.co/Bwr07vw/martial-arts.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Weight Loss",
+        "description": "Every adult is in control of the amount of food he or she consumes each day, so our intake of calories is something we can control. ",
+        "price": 1000,
+        "img": "https://i.ibb.co/6wzbcGt/weight-loss.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Yoga",
+        "description": "Yoga offers physical and mental health benefits for people of all ages. And, if you’re going through an illness, recovering from surgery or living with a chronic condition.",
+        "price": 1500,
+        "img": "https://i.ibb.co/JpM8wSg/yoga.jpg"
+    }
+]
