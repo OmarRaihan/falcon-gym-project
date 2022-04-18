@@ -1,6 +1,6 @@
 # FALCON GYM
 
-Website Link: (https://world-gym-5d63a.web.app/login)
+Website Link: (https://world-gym-5d63a.web.app/home)
 
 ## About Website
 
