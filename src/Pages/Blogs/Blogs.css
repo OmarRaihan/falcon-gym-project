@@ -1,7 +1,12 @@
 
 .question{
-    background-color: rgb(169, 248, 222);
-    padding: 20px;
+    background-color: rgba(169, 248, 222, 0.772);
+    padding: 30px;
     border-radius: 20px;
-    margin-top: 30px;
+}
+
+.question-2{
+    background-color: rgba(236, 203, 253, 0.894);
+    padding: 30px;
+    border-radius: 20px;
 }
