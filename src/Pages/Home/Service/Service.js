@@ -16,7 +16,7 @@ const Service = ({service}) => {
             <div className="card border-0 rounded-lg shadow-lg p-2" style={{ width: "16rem" }}>
                 <img className='rounded' src={img} alt="" />
                 <div className="info text-center mt-4">
-                    <h5>{name}</h5>
+                    <h4>{name}</h4>
                     <p>{description}</p>
                     <h6>Fees: {price}/<small>month</small></h6>
                 </div>

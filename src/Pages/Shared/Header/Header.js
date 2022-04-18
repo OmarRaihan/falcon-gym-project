@@ -17,7 +17,7 @@ const Header = () => {
     <header>
       <Navbar className="shadow" sticky="top" bg="light" expand="lg">
         <Container>
-          <Navbar.Brand className="fs-4 fw-bold" as={Link} to="/home">World Gym</Navbar.Brand>
+          <Navbar.Brand className="fs-4 fw-bold" as={Link} to="/home">FALCON GYM</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto fw-bold">

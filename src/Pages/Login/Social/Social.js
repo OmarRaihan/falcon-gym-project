@@ -14,13 +14,7 @@ const Social = () => {
   let errorElement;
 
   if (error || errorGithub) {
-    errorElement = (
-      <div>
-        <p className="text-danger">
-          Error: {error?.message} {errorGithub?.message}
-        </p>
-      </div>
-    );
+    errorElement = <p className="text-danger">Error: {error?.message} {errorGithub?.message}</p>
   }
 
   if (user || userGithub) {
