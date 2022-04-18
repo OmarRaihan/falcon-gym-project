@@ -1,0 +1,8 @@
+.about-blog {
+  background-image: linear-gradient(315deg, #f876de 0%, #b9d1eb 74%);
+  padding: 30px;
+  border-radius: 20px;
+}
+span {
+  font-weight: 700;
+}
