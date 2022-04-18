@@ -8,9 +8,9 @@ import Loading from "../../Shared/Loading/Loading";
 
 const Register = () => {
   const [agree, setAgree] = useState(false);
-  const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [createUserWithEmailAndPassword, loading] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-  const [updateProfile, updating, profileError] = useUpdateProfile(auth);
+  const [updateProfile, updating] = useUpdateProfile(auth);
 
   const navigate = useNavigate();
 
@@ -20,10 +20,6 @@ const Register = () => {
 
   if (loading || updating) {
     return <Loading></Loading>;
-  }
-
-  if (user) {
-    console.log("user", user);
   }
 
   const handleRegister = async (event) => {

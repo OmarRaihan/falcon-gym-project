@@ -14,12 +14,16 @@ const Social = () => {
   const navigate = useNavigate();
   let errorElement;
 
-  if(loading || loadingGithub){
-    return <Loading></Loading>
+  if (loading || loadingGithub) {
+    return <Loading></Loading>;
   }
 
   if (error || errorGithub) {
-    errorElement = <p className="text-danger">Error: {error?.message} {errorGithub?.message}</p>
+    errorElement = (
+      <p className="text-danger">
+        Error: {error?.message} {errorGithub?.message}
+      </p>
+    );
   }
 
   if (user || userGithub) {
