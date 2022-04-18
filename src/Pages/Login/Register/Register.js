@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import Social from "../Social/Social";
 
 const Register = () => {
   const [agree, setAgree] = useState(false);
-  const [
-    createUserWithEmailAndPassword, 
-    user, 
-    loading, 
-    error
-  ] = useCreateUserWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+  const [updateProfile, updating, profileError] = useUpdateProfile(auth);
+
   const navigate = useNavigate();
 
   const navigateLogin = () => {
@@ -20,18 +18,19 @@ const Register = () => {
   };
 
   if (user) {
-    navigate("/home");
+    console.log("user", user);
   }
 
-  const handleRegister = (event) => {
+  const handleRegister = async (event) => {
     event.preventDefault();
     const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
-    // const agree = event.target.terms.checked;
-    if (agree) {
-      createUserWithEmailAndPassword(email, password);
-    }
+
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
+    console.log("Updated profile");
+    navigate("/home");
   };
 
   return (
@@ -51,11 +50,16 @@ const Register = () => {
         </Form.Group>
 
         <Form.Group className="mb-2" controlId="formBasicCheckbox">
-          <Form.Check onClick={() => setAgree(!agree)} type="checkbox" name="terms" className={agree ? 'text-primary': 'text-danger'} label="Accept Terms and Conditions" />
+          <Form.Check
+            onClick={() => setAgree(!agree)}
+            type="checkbox"
+            name="terms"
+            className={agree ? "text-primary" : "text-danger"}
+            label="Accept Terms and Conditions"
+          />
         </Form.Group>
 
-        <Button disabled={!agree}
-        className="w-100" variant="danger" type="submit" value="Register">
+        <Button disabled={!agree} className="w-100" variant="danger" type="submit" value="Register">
           Sign In
         </Button>
       </Form>
