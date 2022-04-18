@@ -20,7 +20,7 @@ const Service = ({service}) => {
                     <p>{description}</p>
                     <h6>Fees: {price}/<small>month</small></h6>
                 </div>
-                <div className='button mx-auto'>
+                <div className='button btn'>
                 <button onClick={() => navigateServiceDetail(id)}>Get Service</button>
                 </div>
             </div>

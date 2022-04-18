@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar className="shadow" sticky="top" bg="light" expand="lg">
+      <Navbar className="shadow py-3" sticky="top" expand="lg">
         <Container>
           <Navbar.Brand className="fs-4 fw-bold" as={Link} to="/home">FALCON GYM</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -1,8 +1,11 @@
 
 .button button{
-    background-color: rgba(127, 250, 209, 0.574);
+    background-color: #b1ade2;
+background-image: linear-gradient(315deg, #b1ade2 0%, #7ddff8 74%);
+
     border: none;
-    border-radius: 50px;
-    padding: 3px 15px;
+    border-radius: 5px;
+    width: 100%;
+    padding: 5px;
     font-weight: 600;
 }
