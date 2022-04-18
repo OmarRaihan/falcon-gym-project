@@ -22,7 +22,7 @@ const Blogs = () => {
 
         {/* Question - 2 */}
       <div className="question-2 w-75 mx-auto my-5">
-        <h2 className="text-center">Question - 2</h2>
+        <h3 className="text-center">Question - 2</h3>
         <hr />
         <div>
           <h4 className="text-center my-3">A. Use of Firebase</h4>
@@ -48,8 +48,19 @@ const Blogs = () => {
       </div>
 
       {/* Question - 3 */}
-      <div>
-
+      <div className="question-3 w-75 mx-auto my-5">
+        <h3 className="text-center my-3">Question - 3</h3>
+        <hr />
+        <h4 className="text-center my-3">Firebase Provides</h4>
+        <div>
+            <li>Realtime Database</li>
+            <li>Remote Config</li>
+            <li>Firebase ML</li>
+            <li>Cloud Functions</li>
+            <li>Cloud Messaging</li>
+            <li>Hosting</li>
+            <li>Cloud Storage</li>
+        </div>
       </div>
     </div>
   );
