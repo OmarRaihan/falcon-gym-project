@@ -4,6 +4,7 @@ import github from "../../../images/social/Github-logo.png";
 import { useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../Shared/Loading/Loading";
 
 const Social = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -12,6 +13,10 @@ const Social = () => {
 
   const navigate = useNavigate();
   let errorElement;
+
+  if(loading || loadingGithub){
+    return <Loading></Loading>
+  }
 
   if (error || errorGithub) {
     errorElement = <p className="text-danger">Error: {error?.message} {errorGithub?.message}</p>
